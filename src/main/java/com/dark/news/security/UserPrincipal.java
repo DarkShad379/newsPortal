@@ -1,7 +1,7 @@
-package com.dark.security;
+package com.dark.news.security;
 
-import com.dark.database.entity.user.AuthGroup;
-import com.dark.database.entity.user.UserEntity;
+import com.dark.news.database.entity.user.AuthGroup;
+import com.dark.news.database.entity.user.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

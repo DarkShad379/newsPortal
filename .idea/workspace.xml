@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b98090c4-4647-4f00-9b41-d22a5a2e5e0c" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/config/SpringWebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/database/entity/user/AuthGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/database/entity/user/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/database/repository/AuthGroupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/database/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/security/UserPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/security/UserSecDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="b98090c4-4647-4f00-9b41-d22a5a2e5e0c" name="Changes" comment="add News Entity and News Repository">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/exceptions/EntryAlreadyExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/service/model/NewsModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/service/model/UserModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/NewsApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/NewsApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/config/SpringWebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/config/SpringWebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/database/entity/news/NewsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/database/entity/news/NewsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/database/entity/user/AuthGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/database/entity/user/AuthGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/database/entity/user/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/database/entity/user/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/database/repository/AuthGroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/database/repository/AuthGroupRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/database/repository/NewsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/database/repository/NewsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/database/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/database/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/security/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/security/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dark/security/UserSecDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dark/news/security/UserSecDetailsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +74,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="com.haulmont.jpb.JpaRepository" />
         <option value="Class" />
       </list>
     </option>
@@ -145,7 +152,28 @@
       <option name="project" value="LOCAL" />
       <updated>1675515966460</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="spring security implementation v1">
+      <created>1675574341558</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675574341558</updated>
+    </task>
+    <task id="LOCAL-00003" summary="change getters and setters to lombok in UserEntity and AuthGroup">
+      <created>1675575021106</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675575021106</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add News Entity and News Repository">
+      <created>1675575062343</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675575062343</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +189,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="spring security implementation v1" />
+    <MESSAGE value="change getters and setters to lombok in UserEntity and AuthGroup" />
+    <MESSAGE value="add News Entity and News Repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="add News Entity and News Repository" />
   </component>
 </project>

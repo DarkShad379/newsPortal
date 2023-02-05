@@ -1,4 +1,4 @@
-package com.dark;
+package com.dark.news;
 
 import org.springframework.boot.SpringApplication;
 

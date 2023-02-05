@@ -1,6 +1,6 @@
-package com.dark.database.repository;
+package com.dark.news.database.repository;
 
-import com.dark.database.entity.user.AuthGroup;
+import com.dark.news.database.entity.user.AuthGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

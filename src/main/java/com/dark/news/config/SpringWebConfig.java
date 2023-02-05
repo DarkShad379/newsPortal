@@ -1,4 +1,4 @@
-package com.dark.config;
+package com.dark.news.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

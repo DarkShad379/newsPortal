@@ -1,4 +1,4 @@
-package com.dark.database.entity.user;
+package com.dark.news.database.entity.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

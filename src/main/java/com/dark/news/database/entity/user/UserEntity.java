@@ -1,5 +1,6 @@
-package com.dark.database.entity.user;
+package com.dark.news.database.entity.user;
 
+import com.dark.news.service.model.UserModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,4 +24,10 @@ public class UserEntity {
     private String username;
     @Column(name = "password")
     private String password;
+
+    public UserEntity(UserModel userModel) {
+        this.id = userModel.getId();
+        this.username = userModel.getUsername();
+        this.password = userModel.getPassword();
+    }
 }

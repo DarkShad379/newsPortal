@@ -1,9 +1,9 @@
-package com.dark.security;
+package com.dark.news.security;
 
-import com.dark.database.entity.user.AuthGroup;
-import com.dark.database.entity.user.UserEntity;
-import com.dark.database.repository.AuthGroupRepository;
-import com.dark.database.repository.UserRepository;
+import com.dark.news.database.entity.user.AuthGroup;
+import com.dark.news.database.entity.user.UserEntity;
+import com.dark.news.database.repository.AuthGroupRepository;
+import com.dark.news.database.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

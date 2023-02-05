@@ -1,5 +1,5 @@
-package com.dark.config;
-import com.dark.security.UserSecDetailsService;
+package com.dark.news.config;
+import com.dark.news.security.UserSecDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
