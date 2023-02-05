@@ -1,9 +1,18 @@
 package com.dark.database.entity.user;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "authusergroup")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuthGroup {
     @Id
     @Column(name = "authgroupid")
@@ -13,28 +22,4 @@ public class AuthGroup {
     private String username;
     @Column(name = "authgroup")
     private String authGroupName;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAuthGroupName() {
-        return authGroupName;
-    }
-
-    public void setAuthGroupName(String authGroupName) {
-        this.authGroupName = authGroupName;
-    }
 }
