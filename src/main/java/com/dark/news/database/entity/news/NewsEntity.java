@@ -1,5 +1,6 @@
 package com.dark.news.database.entity.news;
 
+import com.dark.news.service.model.NewsModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,14 @@ public class NewsEntity {
     private LocalDateTime dateTime;
     @Column(name = "brief")
     private String brief;
-    @Column (name = "content")
+    @Column(name = "content")
     private String content;
+
+    public NewsEntity(NewsModel newsModel) {
+        this.id = newsModel.getId();
+        this.title = newsModel.getTitle();
+        this.brief = newsModel.getBrief();
+        this.content = newsModel.getContent();
+        this.dateTime = newsModel.getDateTime();
+    }
 }
