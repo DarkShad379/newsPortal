@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class NewsServiceImpl implements NewsService {
-    NewsRepository newsRepository;
+    private final NewsRepository newsRepository;
 
     public NewsServiceImpl(NewsRepository newsRepository) {
         this.newsRepository = newsRepository;
