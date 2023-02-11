@@ -2,6 +2,7 @@ package com.dark.news.controller;
 
 import com.dark.news.service.NewsService;
 import com.dark.news.service.model.NewsModel;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ public class NewsController {
         return new ModelAndView("/news", model);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("edit/{id}")
     public ModelAndView getNewsForEditById(@PathVariable long id, ModelMap model) {
         NewsModel selected = newsService.getNews(id);
@@ -35,6 +37,7 @@ public class NewsController {
         return new ModelAndView("/news/edit", model);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("edit/{id}")
     public ModelAndView editNewsById(BindingResult bindingResult, @Valid @ModelAttribute("selectedNews") NewsModel selectedNews, ModelMap model) {
         if (bindingResult.hasErrors()) {
@@ -45,6 +48,7 @@ public class NewsController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("remove")
     public ModelAndView removeNewsList(@ModelAttribute("selectedNewsList") List<NewsModel> selectedNewsList) {
         newsService.removeListOfNews(selectedNewsList);
