@@ -6,9 +6,11 @@ import com.dark.news.exceptions.EntryAlreadyExistException;
 import com.dark.news.service.UserService;
 import com.dark.news.service.model.UserModel;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.Locale;
 
+@Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;

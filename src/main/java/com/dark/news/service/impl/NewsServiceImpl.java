@@ -5,11 +5,13 @@ import com.dark.news.database.repository.NewsRepository;
 import com.dark.news.exceptions.NoSuchEntryInDatabaseException;
 import com.dark.news.service.NewsService;
 import com.dark.news.service.model.NewsModel;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class NewsServiceImpl implements NewsService {
     private final NewsRepository newsRepository;
 
