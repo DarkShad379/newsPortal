@@ -38,7 +38,7 @@ public class NewsController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @GetMapping("edit/{id}")
+    @PostMapping("edit/{id}")
     public ModelAndView editNewsById(BindingResult bindingResult, @Valid @ModelAttribute("selectedNews") NewsModel selectedNews, ModelMap model) {
         if (bindingResult.hasErrors()) {
             return new ModelAndView("/news/edit/", model);
