@@ -51,7 +51,9 @@ group = 'com.dark'
 version = '0.1'
 description = 'newsPortal'
 java.sourceCompatibility = JavaVersion.VERSION_11
-
+test {
+    useJUnitPlatform()
+}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
