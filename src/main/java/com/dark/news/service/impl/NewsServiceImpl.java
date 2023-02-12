@@ -47,9 +47,10 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void updateNews(NewsModel newsModel) {
+    public NewsModel updateNews(NewsModel newsModel) {
         NewsEntity newsEntity = new NewsEntity(newsModel);
-        newsRepository.save(newsEntity);
+        NewsEntity savedEntity = newsRepository.save(newsEntity);
+        return new NewsModel(savedEntity);
     }
 
     @Override

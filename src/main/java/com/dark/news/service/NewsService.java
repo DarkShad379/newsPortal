@@ -11,7 +11,7 @@ public interface NewsService {
 
     NewsModel getNews(Long id);
 
-    void updateNews(NewsModel newsModel);
+    NewsModel updateNews(NewsModel newsModel);
 
     void removeNews(NewsModel newsModel);
 
