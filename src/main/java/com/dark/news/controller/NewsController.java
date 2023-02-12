@@ -23,8 +23,16 @@ public class NewsController {
     }
 
     @GetMapping
-    public ModelAndView getAllNews(ModelMap model) {
-        List<NewsModel> newsList = newsService.getAllNews();
+    public ModelAndView getAllActualNews(ModelMap model) {
+        List<NewsModel> newsList = newsService.getAllActualNews();
+        model.addAllAttributes(newsList);
+        return new ModelAndView("/news", model);
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("archived")
+    public ModelAndView getAllArchivedNews(ModelMap model) {
+        List<NewsModel> newsList = newsService.getAllArchivedNews();
         model.addAllAttributes(newsList);
         return new ModelAndView("/news", model);
     }
