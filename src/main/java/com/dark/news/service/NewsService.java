@@ -13,8 +13,8 @@ public interface NewsService {
 
     NewsModel updateNews(NewsModel newsModel);
 
-    void removeNews(NewsModel newsModel);
+    void archiveNews(NewsModel newsModel);
 
-    void removeListOfNews(List<NewsModel> newsModelList);
+    void archiveListOfNews(List<NewsModel> newsModelList);
 
 }

@@ -54,13 +54,13 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void removeNews(NewsModel newsModel) {
+    public void archiveNews(NewsModel newsModel) {
         NewsEntity newsEntity = new NewsEntity(newsModel);
         newsRepository.delete(newsEntity);
     }
 
     @Override
-    public void removeListOfNews(List<NewsModel> newsModelList) {
+    public void archiveListOfNews(List<NewsModel> newsModelList) {
         newsModelList.forEach(newsModel -> newsRepository.delete(new NewsEntity(newsModel)));
     }
 }

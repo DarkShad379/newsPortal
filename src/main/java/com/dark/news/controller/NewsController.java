@@ -57,9 +57,9 @@ public class NewsController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("remove")
-    public ModelAndView removeNewsList(@ModelAttribute("selectedNewsList") List<NewsModel> selectedNewsList) {
-        newsService.removeListOfNews(selectedNewsList);
+    @PostMapping("archive")
+    public ModelAndView archiveNewsList(@ModelAttribute("selectedNewsList") List<NewsModel> selectedNewsList) {
+        newsService.archiveListOfNews(selectedNewsList);
         return new ModelAndView("/news");
     }
 
