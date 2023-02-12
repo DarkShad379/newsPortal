@@ -39,7 +39,7 @@ public class NewsController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("edit/{id}")
-    public ModelAndView getNewsForEditById(@PathVariable long id, ModelMap model) {
+    public ModelAndView getNewsForEditById(@PathVariable int id, ModelMap model) {
         NewsModel selected = newsService.getNews(id);
         model.addAttribute(selected);
         return new ModelAndView("/news/edit", model);

@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface NewsRepository extends JpaRepository<NewsEntity, Long> {
-    @Query("select n from News n where n.archived = false order by n.name")
+public interface NewsRepository extends JpaRepository<NewsEntity, Integer> {
+    @Query("select n from NewsEntity n where n.archived = false order by n.title")
     List<NewsEntity> findAllActualNews();
 
-    @Query("select n from News n where n.archived = true order by n.name")
+    @Query("select n from NewsEntity n where n.archived = true order by n.title")
     List<NewsEntity> findAllArchivedNews();
 }

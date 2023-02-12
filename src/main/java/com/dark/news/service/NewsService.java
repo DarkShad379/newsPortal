@@ -9,7 +9,7 @@ public interface NewsService {
 
     List<NewsModel> getAllArchivedNews();
 
-    NewsModel getNews(Long id);
+    NewsModel getNews(Integer id);
 
     NewsModel updateNews(NewsModel newsModel);
 

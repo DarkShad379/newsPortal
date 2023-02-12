@@ -22,7 +22,7 @@ public class NewsEntity {
     @Id
     @Column(name = "newsId")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Integer id;
     @Column(name = "title")
     private String title;
     @Column(name = "dateTime")

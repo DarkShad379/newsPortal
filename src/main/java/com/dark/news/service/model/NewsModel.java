@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class NewsModel {
     @NotNull
-    private long id;
+    private Integer id;
     @NotNull
     @NotEmpty
     private String title;

@@ -38,7 +38,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public NewsModel getNews(Long id) {
+    public NewsModel getNews(Integer id) {
         Optional<NewsEntity> newsEntity = newsRepository.findById(id);
         if (newsEntity.isEmpty()) {
             throw new NoSuchEntryInDatabaseException("Cannot find news with id " + id);
