@@ -5,14 +5,16 @@ import com.dark.news.service.model.NewsModel;
 import java.util.List;
 
 public interface NewsService {
-     List<NewsModel> getAllNews();
+    List<NewsModel> getAllActualNews();
 
-     NewsModel getNews(Long id);
+    List<NewsModel> getAllArchivedNews();
 
-     void updateNews(NewsModel newsModel);
+    NewsModel getNews(Long id);
 
-     void removeNews(NewsModel newsModel);
+    void updateNews(NewsModel newsModel);
 
-     void removeListOfNews(List<NewsModel> newsModelList);
+    void removeNews(NewsModel newsModel);
+
+    void removeListOfNews(List<NewsModel> newsModelList);
 
 }

@@ -20,8 +20,18 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public List<NewsModel> getAllNews() {
-        List<NewsEntity> entityNewsList = newsRepository.findAll();
+    public List<NewsModel> getAllArchivedNews() {
+        List<NewsEntity> entityNewsList = newsRepository.findAllArchivedNews();
+        return convertNewsEntityListToModelList(entityNewsList);
+    }
+
+    @Override
+    public List<NewsModel> getAllActualNews() {
+        List<NewsEntity> entityNewsList = newsRepository.findAllActualNews();
+        return convertNewsEntityListToModelList(entityNewsList);
+    }
+
+    private static ArrayList<NewsModel> convertNewsEntityListToModelList(List<NewsEntity> entityNewsList) {
         ArrayList<NewsModel> modelNewsList = new ArrayList<>();
         entityNewsList.forEach(newsEntity -> modelNewsList.add(new NewsModel(newsEntity)));
         return modelNewsList;
