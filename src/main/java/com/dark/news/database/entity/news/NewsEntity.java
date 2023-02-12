@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SQLDelete(sql = "UPDATE newsCatalog SET archived = true WHERE id=?")
+
 public class NewsEntity {
     @Id
     @Column(name = "newsId")
@@ -28,6 +31,8 @@ public class NewsEntity {
     private String brief;
     @Column(name = "content")
     private String content;
+    @Column(name = "archived")
+    private boolean archived;
 
     public NewsEntity(NewsModel newsModel) {
         this.id = newsModel.getId();
