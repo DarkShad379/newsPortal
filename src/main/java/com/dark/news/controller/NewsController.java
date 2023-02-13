@@ -58,8 +58,8 @@ public class NewsController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("archive")
-    public ModelAndView archiveNewsList(@ModelAttribute("selectedNewsList") List<NewsModel> selectedNewsList) {
-        newsService.archiveListOfNews(selectedNewsList);
+    public ModelAndView archiveNewsList(@ModelAttribute("selectedNewsList") List<Integer> selectedNewsIdList) {
+        newsService.archiveListOfNews(selectedNewsIdList);
         return new ModelAndView("/news");
     }
 
