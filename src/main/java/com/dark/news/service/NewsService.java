@@ -15,6 +15,6 @@ public interface NewsService {
 
     void archiveNews(NewsModel newsModel);
 
-    void archiveListOfNews(List<NewsModel> newsModelList);
+    void archiveListOfNews(List<Integer> newsIdModelList);
 
 }

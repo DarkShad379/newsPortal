@@ -60,7 +60,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void archiveListOfNews(List<NewsModel> newsModelList) {
-        newsModelList.forEach(newsModel -> newsRepository.delete(new NewsEntity(newsModel)));
+    public void archiveListOfNews(List<Integer> newsIdList) {
+        newsIdList.forEach(newsRepository::deleteById);
     }
 }
