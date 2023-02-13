@@ -2,19 +2,27 @@ package com.dark.news.service.impl;
 
 import com.dark.news.database.entity.news.NewsEntity;
 import com.dark.news.database.repository.NewsRepository;
+import com.dark.news.exceptions.NoSuchEntryInDatabaseException;
 import com.dark.news.service.model.NewsModel;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.AdditionalAnswers.returnsFirstArg;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,7 +34,7 @@ class NewsServiceImplTest {
 
     @Test
     void getAllArchivedNews() {
-        //TODO
+
     }
 
     @Test
@@ -36,27 +44,48 @@ class NewsServiceImplTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 2, 5, 10, Integer.MAX_VALUE})
-    void getNews(int newsId) {
+    void should_find_one_news_by_id(int newsId) {
         NewsEntity mockEntity = new NewsEntity();
         mockEntity.setId(newsId);
         mockEntity.setTitle("Тестовая новость");
         when(newsRepository.findById(newsId)).thenReturn(Optional.of(mockEntity));
-        NewsModel findedEntity = newsService.getNews(newsId);
-        assertThat("ID identical", Objects.equals(findedEntity.getId(), mockEntity.getId()));
+        NewsModel foundEntity = newsService.getNews(newsId);
+        assertThat("ID not identical", Objects.equals(foundEntity.getId(), mockEntity.getId()));
     }
 
     @Test
-    void updateNews() {
-        //TODO
+    void should_not_find_news_that_doesnt_exists() {
+        when(newsRepository.findById(anyInt())).thenReturn(Optional.empty());
+        Assertions.assertThrows(NoSuchEntryInDatabaseException.class, () -> {
+            newsService.getNews(1);
+        });
     }
 
     @Test
-    void removeNews() {
-        //TODO
+    void should_save_and_return_one_news() {
+        NewsModel mockModel = new NewsModel();
+        mockModel.setId(1);
+        mockModel.setTitle("Тестовый тайтл");
+        mockModel.setContent("Очень важный контент");
+        mockModel.setDateTime(LocalDateTime.now());
+        mockModel.setBrief("короткое описание");
+        when(newsRepository.save(any(NewsEntity.class))).then(returnsFirstArg());
+        NewsModel savedModel = newsService.updateNews(mockModel);
+        assertThat("Models are not equals", mockModel.equals(savedModel));
+
     }
 
     @Test
-    void removeListOfNews() {
-        //TODO
+    void should_archive_list_of_news() {
+        ArrayList<Integer> mockIdList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            mockIdList.add(i);
+        }
+        newsService.archiveListOfNews(mockIdList);
+        for (Integer newsId : mockIdList
+        ) {
+            Mockito.verify(newsRepository).deleteById(newsId);
+        }
     }
+
 }
