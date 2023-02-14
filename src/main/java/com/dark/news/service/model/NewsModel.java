@@ -25,6 +25,7 @@ public class NewsModel {
     @NotNull
     @NotEmpty
     private String content;
+    private boolean archived = false;
 
     public NewsModel(NewsEntity newsEntity) {
         this.id = newsEntity.getId();
@@ -32,5 +33,6 @@ public class NewsModel {
         this.brief = newsEntity.getBrief();
         this.content = newsEntity.getContent();
         this.dateTime = newsEntity.getDateTime();
+        this.archived = newsEntity.isArchived();
     }
 }

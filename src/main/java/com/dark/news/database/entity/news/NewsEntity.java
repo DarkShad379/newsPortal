@@ -32,7 +32,7 @@ public class NewsEntity {
     @Column(name = "content")
     private String content;
     @Column(name = "archived")
-    private boolean archived;
+    private boolean archived = false;
 
     public NewsEntity(NewsModel newsModel) {
         this.id = newsModel.getId();
