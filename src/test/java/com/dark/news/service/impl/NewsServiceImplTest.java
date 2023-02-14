@@ -16,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -33,13 +34,32 @@ class NewsServiceImplTest {
     private NewsServiceImpl newsService;
 
     @Test
-    void getAllArchivedNews() {
-
+    void should_return_archived_news() {
+        List<NewsEntity> mockEntityList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            NewsEntity mockEntity = new NewsEntity();
+            mockEntity.setId(i);
+            mockEntity.setArchived(true);
+            mockEntityList.add(mockEntity);
+        }
+        when(newsRepository.findAllArchivedNews()).thenReturn(mockEntityList);
+        List<NewsModel> actualNews = newsService.getAllArchivedNews();
+        Optional<NewsModel> archivedNews = actualNews.stream().filter(newsEntity -> !newsEntity.isArchived()).findAny();
+        assertThat("Found non-archived news from actual request request", archivedNews.isEmpty());
     }
 
     @Test
-    void getAllActualNews() {
-        //TODO
+    void should_return_actual_news() {
+        List<NewsEntity> mockEntityList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            NewsEntity mockEntity = new NewsEntity();
+            mockEntity.setId(i);
+            mockEntityList.add(mockEntity);
+        }
+        when(newsRepository.findAllActualNews()).thenReturn(mockEntityList);
+        List<NewsModel> actualNews = newsService.getAllActualNews();
+        Optional<NewsModel> archivedNews = actualNews.stream().filter(NewsModel::isArchived).findAny();
+        assertThat("Found archived news from non archived request", archivedNews.isEmpty());
     }
 
     @ParameterizedTest
